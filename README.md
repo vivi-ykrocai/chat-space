@@ -3,6 +3,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, add_index|
+|email|string|null: false|
 |password|string|null: false|
 ### Association
 - has_many :massages
@@ -15,7 +16,7 @@
 |name|string|null: false, add_index|
 ### Association
 - has_many :massages
-- has_many :groups_users
+- has_many :groups_user
 - has_many :users, through: :groups_users
 
 ## messagesテーブル
