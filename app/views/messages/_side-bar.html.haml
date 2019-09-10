@@ -10,12 +10,10 @@
         =link_to edit_user_path(current_user), class: "side-header__box__menu__edit-user" do
           = fa_icon 'cog'
   .groups
-    .group
-      %p.group__group-name ためし１
-      %p.group__latest-message まだメッセージがありません
-    .group
-      %p.group__group-name ためし２
-      %p.group__latest-message まだメッセージがありません
-    .group
-      %p.group__group-name ためし３
-      %p.group__latest-message まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__group-name
+            = group.name
+          .group__latest-message
+            メッセージはまだありません。
