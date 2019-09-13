@@ -1,29 +1,15 @@
 .chat-main
   .main-header
     .main-header__left-box
-      %h2.main-header__left-box__current-group ためし１
+      %h2.main-header__left-box__current-group
+        = @group.name
       %ul.main-header__left-box__member-list Member：
-      %li.main-header__left-box__member-list__member わかめ
-      %li.main-header__left-box__member-list__member かに
-      %li.main-header__left-box__member-list__member おおみや
-      %li.main-header__left-box__member-list__member まめ
+      %li.main-header__left-box__member-list__member
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     %input.main-header__edit-btn{type: "button", value: "Edit"}
   .messages
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker 自分
-        %p.message__upper-info__date 2019/09/06(Fri) 15:57:22
-      %p.message__text テスト１
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker 自分
-        %p.message__upper-info__date 2019/09/06(Fri) 15:57:22
-      %p.message__text テスト２
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker 自分
-        %p.message__upper-info__date 2019/09/06(Fri) 15:57:22
-      %p.message__text テスト３
+    = render partial: 'message', collection: @messages
   
   .form.new_message
     = form_for [@group, @message] do |f|
