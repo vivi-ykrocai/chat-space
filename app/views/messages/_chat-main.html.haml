@@ -24,11 +24,22 @@
         %p.message__upper-info__talker 自分
         %p.message__upper-info__date 2019/09/06(Fri) 15:57:22
       %p.message__text テスト３
-  .form
-    %form.new_message
-      .input-box
-        %input.input-box__text{type: "text", placeholder: "type a message"}
-        %label.input-box__image
-          %i.fa.fa-image
-          %input.input-box__image__file{type: "file"}
-      %input.submit-btn{type: "submit", value: "Send"}
+  
+  .form.new_message
+    = form_for [@group, @message] do |f|
+      .form-box
+        .input-box
+          = f.text_field :body, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'fa fa-image'
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
+  
+  -# .form
+  -#   %form.new_message
+  -#     .input-box
+  -#       %input.input-box__text{type: "text", placeholder: "type a message"}
+  -#       %label.input-box__image
+  -#         %i.fa.fa-image
+  -#         %input.input-box__image__file{type: "file"}
+  -#     %input.submit-btn{type: "submit", value: "Send"}
