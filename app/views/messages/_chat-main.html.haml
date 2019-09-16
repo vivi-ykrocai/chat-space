@@ -11,7 +11,7 @@
   .messages
     = render partial: 'message', collection: @messages
   
-  .form.new_message
+  .form
     = form_for [@group, @message] do |f|
       .form-box
         .input-box
