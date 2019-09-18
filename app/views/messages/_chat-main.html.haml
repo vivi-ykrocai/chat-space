@@ -7,7 +7,8 @@
       %li.main-header__left-box__member-list__member
         - @group.group_users.each do |group_user|
           = group_user.user.name
-    %input.main-header__edit-btn{type: "button", value: "Edit"}
+    =link_to "Edit", edit_group_path(@group.id), class: "edit-btn", type: "button"
+
   .messages
     = render partial: 'message', collection: @messages
   
