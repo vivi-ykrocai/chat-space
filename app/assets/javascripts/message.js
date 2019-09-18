@@ -60,17 +60,15 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        console.log(messages)
         var insertHTML = '';
         messages.forEach(function(message){
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
           $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         });
-        console.log('success');
       })
       .fail(function() {
-        console.log('error');
+        alert('error');
       });
     };
   };
