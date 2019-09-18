@@ -29,7 +29,7 @@
         margin-left: 4.8px;
       }
     }
-    &__edit-btn {
+    .edit-btn {
       display: block;
       height: 40px;
       line-height: 40px;
@@ -40,6 +40,7 @@
       position: absolute;
       right: 40px;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 
